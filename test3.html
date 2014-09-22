@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <style type="text/css">
+      .drop{
+        -webkit-animation:drop  1.5s ease-in;
+        -webkit-animation-fill-mode: both;
+        background: url(http://p7.qhimg.com/t018a7d00c8aa0826c6.png) 0 0 no-repeat;
+        width: 93px;
+        height: 61px;
+      }
+
+      @-webkit-keyframes drop{
+        0 {
+          -webkit-transform:translateY(0);
+          opacity: 1;
+        }
+        50%{
+          opacity: 1;
+        }
+        100% {
+          -webkit-transform:translateY(1300px);
+          opacity: 0.3;
+        }
+      }
+      div{
+        font-size: 50px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body style="background:#FFF6DB;">
+
+
+    <script type="text/javascript">
+        function createMoney (num) {
+
+          var windowWidth = window.innerWidth;
+          
+          
+          var fragment = document.createDocumentFragment();
+
+            for(var i = 0; i<num; i++){
+              var randomX = Math.floor(Math.random()*windowWidth);
+              var randomScale = Math.random() + 0.3;
+              var delayTime = Math.floor(Math.random()*30 + 3)/10;
+              var div = document.createElement('div');
+
+              div.style.webkitTransform  = 'scale('+randomScale+')';
+              div.style.position = "absolute";
+              div.style.left = randomX + 'px';
+              div.style.top = "-100px";
+              div.style.webkitAnimationDelay = delayTime + "s";
+              div.className = "drop";
+              fragment.appendChild(div);
+            }
+
+          document.body.appendChild(fragment);
+            
+        }
+        createMoney(70);
+    </script>
+  </body>
+</html>
